@@ -9,8 +9,15 @@
 
     <script>
     //這裡是回傳第一個 p，是一種 element
-    let p = document.querySelector('p');
-    p.style.backgroundColor = '#7878ff';
+    // let p = document.querySelector('p');
+    // p.style.backgroundColor = '#7878ff';
+
+    let p = document.querySelectorAll('p.myClass')
+    p[0].style.backgroundColor = '#7878ff';
+    p[1].style.fontSize = '24px';
+    p[2].style.color = '#787878';
+    p[2].style.lineHeight = '80px';
     </script>
+
 </body>
 </html>
