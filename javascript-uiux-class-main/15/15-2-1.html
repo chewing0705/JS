@@ -4,15 +4,23 @@
     <title>範例 15-2-1.html</title>
     <script>
     //三秒後跳出訊息 Hello World
-    setTimeout( function () { alert('Hello World'); }, 3000 );
+    // setTimeout( function () { alert('Hello World'); }, 3000 );
     
-    //自訂函式後，使用 setTimeout 來調用自訂函式
-    function getMessage(){
-        alert('Good job!');
-    }
+        setTimeout( function() {
+            alert ('I love u');
+        }
+        ,2000);
 
+    //自訂函式後，使用 setTimeout 來調用自訂函式
+    // function getMessage(){
+    //     alert('Good job!');
+    // }
+function getMessage(){
+    alert ('yoyoyo ');
+}
+setTimeout( getMessage,5000)
     //十秒後跳出訊息 Good job!
-    setTimeout(getMessage, 10000);
+    // setTimeout(getMessage, 10000);
     </script>
 </head>
 <body>

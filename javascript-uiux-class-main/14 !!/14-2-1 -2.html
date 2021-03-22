@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>範例 14-2-1.html</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        var Person = function (name, height,weight, age) {
+            this.name = name;
+            this.hands = 2;
+            this.getName = function(){
+                return this.name
+            }
+        };
+let person01 = new Person ("Jolin",150,100,18);
+console.log(person01.getName());
+
+
+    </script>
+</body>
+
+</html>

@@ -9,7 +9,7 @@
     <button onclick="stopCount()">結束累加</button>
 
     <script>
-    //累加數字的變數
+    // 累加數字的變數
     var countNum = 0;
 
     //作為 clearTimeout() 用的變數
@@ -22,6 +22,7 @@
 
         //進行數字的累加
         countNum = countNum + 1;
+    //    右邊這三個意思一樣 countNum = countNum + 1;   countNum =+ 1;   countNum ++;
 
         //運用遞迴的概念，在指定毫秒後進行累加
         t = setTimeout(function(){ count() }, 1000);

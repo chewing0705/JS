@@ -17,12 +17,13 @@
     year = date.getFullYear() 
     
     // 月份，10 月時執行會出現 9，比正常值少 1，記得加 1
-    if( (date.getMonth() + 1) < 10 ) {
-        month = '0' + (date.getMonth() + 1);
-    } else { 
-        month = (date.getMonth() + 1);
-    };
-    
+ 
+    if ((date.getMonth() +1 ) < 10 ){
+        month = '0' + (date.getMonth()+1);
+    } else{
+        month = '0' +(date.getMonth()+1);
+    }
+
     // 25，當月 25 號
     if( date.getDate() < 10 ) {
         day = '0' + date.getDate();
