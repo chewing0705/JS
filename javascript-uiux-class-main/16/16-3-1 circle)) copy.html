@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>範例 16-3-1.html</title>
+    <style>
+        /* 小圓圈 */
+        .circle {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            display: none;
+            width: 10px;
+            height: 10px;
+            background-color: gray;
+            border-radius: 50%;
+        }
+
+        /* 圓形邊界 */
+        .wrap {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- div.wrap 是大的圓形邊界 -->
+    <div class="wrap" id="wrap"></div>
+
+    <!-- div.circle 是之後要連續環狀複製的小圓圈 -->
+    <div class="circle" id="circle"></div>
+
+    <script>
+    let  radius =250 ;
+    let circle = document.getElementById('circle');
+    let wrap = document.getElementById('wrap');
+
+    let degree = 0;
+    let qty = 6;
+    let movelength = 360 / qty ;
+let t;
+t= setInterval(function() {
+    draw();
+}, 500);
+
+function draw(){
+    if(degree + movelength >=360){
+        clearInterval(t);
+    };
+degree += movelength;
+
+let wrap_left = wrap.offsetLeft;
+let wrap_top = wrap.offsetTop;
+
+//這不會ㄌcos sin  +x -y
+let x = Math.cos(degree* (Math.PI / 180))* radius;
+circle.style.left= (wrap_left + radius + x) + "px";
+
+let y = Math.sin(degree* (Math.PI / 180))* radius;
+circle.style.top= (wrap_top + radius-y) + "px";
+
+
+circle.style.display = 'block';
+//還有這個
+let newCircle = circle.cloneNode(true); 
+document.body.appendChild(newCircle);
+
+}
+    </script>
+</body>
+</html>

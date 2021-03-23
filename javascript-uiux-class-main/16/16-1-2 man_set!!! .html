@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>man set</title>
+    <style>
+        .containter {
+            width: 600px;
+            margin: 10% auto;
+            text-align: center;
+            font-size: 26px;
+            /* font-weight: 600; */
+            color: rgb(90, 90, 90);
+        }
+
+        .box {
+
+            display: flex;
+
+            justify-content: center;
+        }
+
+        #txt {
+            margin:4% 5%;
+
+        }
+
+        .btn {
+
+            width:80px;
+            height:80px;
+            border-radius: 50%;
+            border: 0px;
+            background: rgb(255, 129, 171);
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="containter">
+        <p>今晚，我想來點</p>
+
+        <div class="box">
+
+            <button onclick="startCount()" id="btn_start" class="btn">換一個</button>
+            <p id="txt"></p>
+            <button onclick="stopCount()" id="btn_end" class="btn">停止</button>
+        </div>
+    </div>
+
+
+    <script>
+        // function getRandom(x){
+        //     return Math.floor(Math.random()*x)+1;
+        // }
+
+        let arrMeal = ['社長', '和尚', '鄰居', '總裁', '學長', '學弟', '老師', '男友', '前任', '同事'];
+        // let idxRandom = Math.floor(Math.random() * 7);
+
+
+        //作為 clearInterval() 用的變數
+
+        // document.write(`我可以選擇的男人有: <br />`);
+        // for (let i = 0; i<arrMeal.length;i++){
+        //     document.write('● ' + arrMeal[i] + '<br />');
+        // }
+
+        // }
+
+
+        // for (i =0; i<=6;i++){
+        // let num = getRandom();
+        // if (arrMeal.indexOf(i) > 6){
+        //     i=0;
+        // }
+        // console.log(i)
+
+
+
+        var i = 0;
+        var t;
+
+        function count() {
+            let i = Math.floor(Math.random() * 10);
+            let p = document.getElementById("txt");
+            p.innerText = `${arrMeal[i]}`;
+
+        }
+
+        count();
+
+        function startCount() {
+            t = setInterval(function () { count() }, 100);
+            //  setInterval(function () { count() }, 300);
+            document.getElementById("btn_start").setAttribute("disabled", true);
+
+
+            document.getElementById("btn_end").removeAttribute("disabled");
+        }
+
+        function stopCount() {
+
+            clearInterval(t);
+            document.getElementById("btn_start").removeAttribute("disabled");
+
+            document.getElementById("btn_end").setAttribute("disabled", true);
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>
