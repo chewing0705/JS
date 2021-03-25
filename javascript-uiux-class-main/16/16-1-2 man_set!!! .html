@@ -4,6 +4,10 @@
 <head>
     <title>man set</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         .containter {
             width: 600px;
             margin: 2% auto;
@@ -205,9 +209,8 @@ document.getElementById('change').addEventListener('click', function(event){
         changeNum -= 1;
         haveNum.innerText = changeNum;
         // record.appendChild(newList+arrMeal[i])
-       
-        // record.appendChild(newList);
-    
+        useTime();
+
     });
 
 
@@ -216,11 +219,10 @@ document.getElementById('change').addEventListener('click', function(event){
 
 
 
+// 時間戳記模組
 
-
-
-
-
+    function useTime() {
+    
  let date = new Date();
 let year, month, day, hour, minute, second;
 
@@ -249,16 +251,31 @@ if( date.getMinutes() < 10) {
 } else { 
     minute = date.getMinutes();
 };
+if( date.getSeconds() < 10) {
+        second = '0' + date.getSeconds();
+    } else {
+        second = date.getSeconds();
+    };
 
 
 
 // document.write(`${year}-${month}-${day} ${hour}:${minute}:${second}`);   
 let record =document.getElementById('record');
-
-    var newList = document.createElement('li');
-var textNode = document.createTextNode(`${year}-${month}-${day} ${hour}:${minute}`)
+let result =document.getElementById('txt');
+// console.log(result) result是印出選擇的結果
+// result.style.color= '#ff0000';
+ var newList = document.createElement('li');
+var textNode = document.createTextNode(`${year}-${month}-${day} ${hour}:${minute}:${second}      ${result.innerText} `)
+// var textNode = document.createTextNode(year+"-"+month+"-"+day +hour+":"+{minute}+":"+second+ )
+//  上述不能僅寫${result}他只會找到元素標籤 ，要寫 ${result.innerText} 
 newList.appendChild(textNode);
 record.appendChild(newList);
+
+
+
+}
+//筆記  :要有模組化的概念  要多做甚麼 給他function  每次去傳回值
+//需要做的  .時間戳記   .文字結果   
 
 
     </script>
