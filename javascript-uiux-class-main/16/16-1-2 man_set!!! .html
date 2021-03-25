@@ -19,31 +19,45 @@
         .manBox{
            max-width: 400px;
             box-shadow: 0px 5px 8px rgba(104, 104, 104, 0.363);
-            margin: 0 auto;
+            margin: 2% auto;
             
             padding: 2% 1% 3% 1%;
             border-radius: 8px;
         }
-        .manImg{
+        #manImg{
             width: 300px;
             height: 350px;
             background-color: #d3d3d3;
             margin: 0 auto;
-            margin-bottom: 8%;
+            margin: 4% auto;
             border-radius: 10px;
+         
+            overflow: hidden;
+           
+        }
+        #manImg img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+           
+            object-position: top;
+
+            /*這三個要搭配使用 width: 100%;
+            height: 100%; object-fit: cover;
+           */
         }
         .work {
 
             display: flex;
 
             justify-content: center;
-            margin-bottom: 5%;
+            margin-bottom: 2%;
             
         
         }
       
         #txt {
-            margin:4% 5%;
+            margin:6% 5%;
 
         }
 
@@ -65,7 +79,7 @@
             /* border-bottom: 1px solid #c1c1c1; */
             /* border-top: 1px solid #c1c1c1; */
             /* padding: 2%; */
-            margin-bottom: 10%;
+            margin-bottom: 5%;
         }
         #change{
             width: 100px;
@@ -75,6 +89,7 @@
             border: 0px;
             color: #fff;
             font-size: 17px;
+            margin-bottom: 2%;
         }
         #record{
             text-align: center;
@@ -92,8 +107,8 @@
     <div class="containter">
         
         <div class="manBox"><p>今晚，我想來點</p>
-        <div class="manImg">
-
+        <div id="manImg">
+            
         </div>
         <div class="work">
 
@@ -124,6 +139,18 @@
 
 
     <script>
+        let arrManPic = ['<img src="/javascript-uiux-class-main/img/man (1).jpg" >',
+        '<img src="/javascript-uiux-class-main/img/man (2).jpg" >',
+        '<img src="/javascript-uiux-class-main/img/man (3).jpg" >',
+        '<img src="/javascript-uiux-class-main/img/man (4).jpg" >',
+        '<img src="/javascript-uiux-class-main/img/man (5).jpg" >',
+        '<img src="/javascript-uiux-class-main/img/man (6).jpg" >',
+        '<img src="/javascript-uiux-class-main/img/man (7).jpg" >',
+        '<img src="/javascript-uiux-class-main/img/man (8).jpg" >',
+        '<img src="/javascript-uiux-class-main/img/man (9).jpg" >',
+        '<img src="/javascript-uiux-class-main/img/man (10).jpg" >',
+    ];
+
         // function getRandom(x){
         //     return Math.floor(Math.random()*x)+1;
         // }
@@ -157,6 +184,9 @@
         function count() {
             let i = Math.floor(Math.random() * 10);
             let p = document.getElementById("txt");
+            let img = document.getElementById("manImg");
+            // console.log(img)
+            img.innerHTML = `${arrManPic[i]}`;
             p.innerText = `${arrMeal[i]}`;
 
         }
@@ -203,8 +233,8 @@ document.getElementById('change').addEventListener('click', function(event){
         // alert(this.innerText);
 
         //修改文字
-        this.innerText = '已兌換';
-        this.style.backgroundColor = '#c1c1c1';
+        // this.innerText = '已兌換';
+        // this.style.backgroundColor = '#c1c1c1';
       
         changeNum -= 1;
         haveNum.innerText = changeNum;
