@@ -108,7 +108,7 @@
         #record li {
             border-bottom: 1px solid #c1c1c1;
             list-style: none;
-
+            white-space: pre;   /* 搭配 createTextNode 的斷行\n用的*/
             font-size: 18px;
         }
     </style>
@@ -316,7 +316,7 @@
             // console.log(result) result是印出選擇的結果
             // result.style.color= '#ff0000';
             var newList = document.createElement('li');
-            var textNode = document.createTextNode(`${year}-${month}-${day} ${hour}:${minute}:${second}      ${result.innerText} `)
+            var textNode = document.createTextNode(`${year}-${month}-${day} ${hour}:${minute}:${second} \n ${result.innerText} `)
             // var textNode = document.createTextNode(year+"-"+month+"-"+day +hour+":"+{minute}+":"+second+ )
             //  上述不能僅寫${result}他只會找到元素標籤 ，要寫 ${result.innerText} 
             newList.appendChild(textNode);
