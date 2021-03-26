@@ -9,13 +9,45 @@
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, 'sans-serif';
+
+        }
+
+        nav,
+        footer {
+            height: 50px;
+            background-color:#ffc4e5;
+            color: #fff;
+            text-align: center;
+            font-weight: 600;
+            line-height: 2.5;
+            font-size: 21px;
+        }
+
+        footer {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            font-size: 13px;
+            line-height: 4;
         }
 
         .containter {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .selectBox {
+            float: left;
             width: 600px;
             margin: 2% auto;
             text-align: center;
-            font-size: 26px;
+            font-size: 23px;
             /* font-weight: 600; */
             color: rgb(90, 90, 90);
         }
@@ -23,18 +55,18 @@
         .manBox {
             max-width: 400px;
             box-shadow: 0px 5px 8px rgba(104, 104, 104, 0.363);
-            margin: 2% auto;
-
-            padding: 2% 1% 3% 1%;
+            margin: 6% auto;
+            background-color: #fff;
+            padding: 4% 1% 3% 1%;
             border-radius: 8px;
         }
 
         #manImg {
-            width: 300px;
-            height: 350px;
+            width: 350px;
+            height: 410px;
             background-color: #d3d3d3;
-            margin: 0 auto;
-            margin: 4% auto;
+
+            margin: 3% auto 5% auto;
             border-radius: 10px;
 
             overflow: hidden;
@@ -101,56 +133,94 @@
             margin-bottom: 2%;
         }
 
+        .boxRecord {
+            width: 400px;
+            margin: 6% auto;
+            text-align: center;
+            float: left;
+
+        }
+
+        .boxRecord p {
+            margin-bottom: 2%;
+            font-size: 16px;
+            /* border-bottom: 1px solid #c1c1c1; */
+            border: 1px solid #c1c1c1;
+            border-radius: 50px;
+            /* background-color: #d3d3d3; */
+            /* padding-bottom: 2%; */
+            padding: 1%;
+            font-weight: 600;
+            color:  #6d6d6d;
+            letter-spacing: 2px;
+        }
+
         #record {
             text-align: center;
+            
         }
 
         #record li {
-            border-bottom: 1px solid #c1c1c1;
+            /* border-bottom: 1px solid #c1c1c1; */
             list-style: none;
-            white-space: pre;   /* 搭配 createTextNode 的斷行\n用的*/
+            white-space: pre;
+            /* 搭配 createTextNode 的斷行\n用的*/
             font-size: 18px;
+            line-height: 2;
+            color: #797979;
+            padding: 3%;
+        }
+        .love-icon{
+         position:absolute;
+         width: 200px;
+         right: 50px;
+         bottom: 70px;
+         opacity: 0.1;
+         transform: rotate(20deg)
+            
         }
     </style>
 </head>
 
 <body>
+    <nav>今晚，我想來點</nav>
     <div class="containter">
 
-        <div class="manBox">
-            <p>今晚，我想來點</p>
-            <div id="manImg">
+        <div class="selectBox">
+            <div class="manBox">
+                <!-- <p>今晚，我想來點</p> -->
+                <div id="manImg">
 
+                </div>
+                <div class="work">
+
+                    <button onclick="startCount()" id="btn_start" class="btn">換一個</button>
+                    <p id="txt"></p>
+                    <button onclick="stopCount()" id="btn_end" class="btn">停止</button>
+                </div>
             </div>
-            <div class="work">
+            <div class="exchangeBox">
 
-                <button onclick="startCount()" id="btn_start" class="btn">換一個</button>
-                <p id="txt"></p>
-                <button onclick="stopCount()" id="btn_end" class="btn">停止</button>
+                <button id="change">我要兌換
+
+                </button>
+                <p>剩餘的兌換卷 : <span id="haveNum">5</span> </p>
             </div>
         </div>
-        <div class="exchangeBox">
-
-            <button id="change">我要兌換
-
-            </button>
-            <p>剩餘的兌換卷 : <span id="haveNum">5</span> </p>
-        </div>
 
 
-
-        <div>
-            <p>使用紀錄</p>
+        <div class="boxRecord">
+            <p>兌換紀錄</p>
             <ul id="record">
-                </li>
 
-                <li>
             </ul>
         </div>
     </div>
-
-
+  <img class="love-icon" src="/javascript-uiux-class-main/img/love.png" alt="">
+    <footer>（圖片轉載自網路）</footer>
     <script>
+
+
         let arrManPic = ['<img src="/javascript-uiux-class-main/img/man (1).jpg" >',
             '<img src="/javascript-uiux-class-main/img/man (2).jpg" >',
             '<img src="/javascript-uiux-class-main/img/man (3).jpg" >',
@@ -190,20 +260,24 @@
 
 
 
-        var i = 0;
+
+        var i;
         var t;
 
         function count() {
             let i = Math.floor(Math.random() * 10);
+
             let p = document.getElementById("txt");
             let img = document.getElementById("manImg");
-        //   另一種
-        //   let img = document.createElement("img");
-        //     img.setAttribute("src",arrManPic[i]);
-        // li.appendChild(img);
+            //   另一種
+            //   let img = document.createElement("img");
+            //     img.setAttribute("src",arrManPic[i]);
+            // li.appendChild(img);
 
             img.innerHTML = `${arrManPic[i]}`;
             p.innerText = `${arrMeal[i]}`;
+
+
 
         }
 
@@ -227,17 +301,20 @@
         }
 
         //更改btn 滑鼠移入移出的樣式，querySelector只能選一個，querySelectorAll可以多個(但因為她是產出陣列，必須給他有第幾個標示)
-        let btnColor = document.querySelectorAll('.btn');
-        let x;
-        for (let x = 0; x <= 1; x++) {
-            btnColor[x].addEventListener('mousemove', function (event) {
-                this.style.backgroundColor = '#f565ad';
-            })
-            btnColor[x].addEventListener('mouseout', function (event) {
-                this.style.backgroundColor = '#ff97cb';
-            })
+        // let btnColor = document.querySelectorAll('.btn');
+        // let c;
+        // for (let c = 0; c <= 1; c++) {
+        //     btnColor[c].addEventListener('mousemove', function (event) {
+        //         this.style.backgroundColor = '#f565ad';
+        //     })
+        //     btnColor[c].addEventListener('mouseout', function (event) {
+        //         this.style.backgroundColor = '#ff97cb';
+        //     })
+            
 
-        }
+        // }
+
+
 
 
 
@@ -268,7 +345,19 @@
             }
 
         });
-
+        // 情境文字
+        var j;
+        let loveArr = ['看了一場浪漫的電影',
+            '漫步在雨中',
+            '一起耍廢在沙發上',
+            '享用美味的燭光晚餐',
+            '在山上眺望夜景',
+            '在沙灘散步，數著星星',
+            '拿枕頭互打嘻鬧',
+            '深情的擁抱',
+            '一同分享一個布丁',
+            '交換內心的小秘密',
+        ];
 
         // 時間戳記模組
 
@@ -313,19 +402,24 @@
             // document.write(`${year}-${month}-${day} ${hour}:${minute}:${second}`);   
             let record = document.getElementById('record');
             let result = document.getElementById('txt');
+
+            let j = Math.floor(Math.random() * 10);
+            console.log(loveArr[j])
             // console.log(result) result是印出選擇的結果
             // result.style.color= '#ff0000';
             var newList = document.createElement('li');
-            var textNode = document.createTextNode(`${year}-${month}-${day} ${hour}:${minute}:${second} \n ${result.innerText} `)
+           
+            var textNode = document.createTextNode(`${year}-${month}-${day} ${hour}:${minute}:${second} \n 與 ${result.innerText} ${loveArr[j]}`)
             // var textNode = document.createTextNode(year+"-"+month+"-"+day +hour+":"+{minute}+":"+second+ )
             //  上述不能僅寫${result}他只會找到元素標籤 ，要寫 ${result.innerText} 
             newList.appendChild(textNode);
-            // record.appendChild(newList);
-
+            
+            newList.style.borderBottom = '1px solid #e6e6e6'
+            record.appendChild(newList);
 
             //下面這兩行 將最新新增的移最前面
-            var front = document.querySelectorAll('li')[0];
-            record.insertBefore(newList,front);
+            // var front = document.querySelectorAll('li')[0];
+            // record.insertBefore(newList, front);
 
 
         }
