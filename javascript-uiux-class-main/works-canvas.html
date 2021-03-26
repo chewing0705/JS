@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="1800" height="800"></canvas>
+  <script>
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+
+    // 臉
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.fillStyle = "#F5E1C4";
+    ctx.ellipse(
+      800, 350, 180, 210, Math.PI / 2,
+      0, 2 * Math.PI
+    );
+    ctx.fill();
+
+    //臉外框
+    ctx.beginPath();
+    ctx.lineWidth = 8;
+    ctx.strokeStyle = "#000000";
+    ctx.ellipse(
+      800, 350, 180, 210, Math.PI / 2,
+      0, 2 * Math.PI
+    );
+    ctx.stroke();
+
+    // 左眼白
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.fillStyle = "#fff";
+    ctx.ellipse(
+      685, 310, 80, 89, Math.PI / 3,
+      0, 2 * Math.PI
+    );
+    ctx.fill();
+      // 右眼白
+      ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.fillStyle = "#fff";
+    ctx.ellipse(
+      915, 310, 80, 83, Math.PI/3,
+      0, 2 * Math.PI
+    );
+    ctx.fill();
+
+    // 左粉眼
+    ctx.beginPath();
+    ctx.fillStyle = "pink";
+    ctx.ellipse(
+      695, 305, 70, 75, Math.PI / 3,
+      0, 2 * Math.PI
+    );
+    ctx.fill();
+
+    // 左黑眼睛
+    ctx.beginPath();
+    ctx.fillStyle = "#000";
+    ctx.ellipse(
+      706, 300, 60, 65, Math.PI / 3,
+      0, 2 * Math.PI
+    );
+    ctx.fill();
+
+    // 左白亮光
+    ctx.beginPath();
+    ctx.fillStyle = "#fff";
+    ctx.arc(730, 290, 30, 0, Math.PI * 2);
+    ctx.fill();
+
+// 左眼睛黑框
+        ctx.beginPath();
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = "#000000";
+        ctx.ellipse(
+            685, 310, 80, 89, Math.PI / 3, 
+            0, 2 * Math.PI
+        );
+        ctx.stroke();
+
+
+  </script>
+</body>
+
+</html>
