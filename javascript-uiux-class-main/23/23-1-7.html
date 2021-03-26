@@ -5,7 +5,7 @@
     <title>Canvas</title>
 </head>
 <body>
-    <canvas id="canvas" width="200" height="200"></canvas>
+    <canvas id="canvas" width="600" height="600"></canvas>
 
     <script>
         let canvas = document.getElementById("canvas");
@@ -22,8 +22,23 @@
         ctx.lineTo(160, 60);
         ctx.lineTo(160, 100);
         ctx.lineTo(160, 100);
+  
+      
+
 
         //繪製實心圖形
+        ctx.fill();
+
+        ctx.beginPath();
+        
+        ctx.moveTo(100, 300);
+        ctx.lineTo(50, 250);
+        ctx.lineTo(80, 230);
+        ctx.lineTo(100, 250);
+        ctx.lineTo(120, 230);
+        ctx.lineTo(150, 250);
+        ctx.lineTo(100, 300);
+      
         ctx.fill();
     </script>
 </body>
