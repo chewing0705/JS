@@ -15,10 +15,11 @@
     // function greet(name){
     //     console.log('Hello, ' + name);
     // }
-    function greet(name){
+    function greet(name, money, weight, hight, gg){
         console.log('Hello,'+name);
+        console.log('Hello,'+name + "," + money + "," + gg);
     }
-    greet('Darren');
+    greet('Darren', 999999999, 50, 148, "50CM");
 
     //有回傳值的函式
     // function getMessage(){
@@ -28,13 +29,31 @@
     function getMessage(){
         return 'Good job';
     }
+
+    function getWeight(personName){
+        if(personName == "fat"){
+            return 55;
+        } else if(personName == "bf") {
+            return 68;
+        } else if(personName == "cua") {
+            return 12;
+        }
+        return "Can't find";
+    }
     //依序執行各個函式
     // say();
     // greet('Alex');
     // console.log(getMessage());
 
-    say()
-    greet('Jolin')
+    let fat = "fat"
+    let bf = "bf"
+    let cat = "cat"
+    console.log("I want to know " + cat + " weight is " + getWeight(cat) );
+
+
+
+    say();
+    greet('Jolin');
     console.log(getMessage());
         
     </script>

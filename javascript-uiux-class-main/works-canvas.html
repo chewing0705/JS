@@ -9,11 +9,30 @@
 </head>
 
 <body>
-  <canvas id="canvas" width="1800" height="800"></canvas>
+  <canvas id="canvas" width="1500" height="700"></canvas>
   <script>
+document.addEventListener('mousedown', function(event) {
+console.log(event.clientX+","+event.clientY )
+
+   
+
+
+   })
+
+
+
+
+
     let canvas = document.getElementById("canvas");
     let ctx = canvas.getContext("2d");
-
+ 
+//衣服
+ctx.beginPath();
+ctx.strokeStyle = "#000000";
+ctx.lineWidth = 8;
+ctx.moveTo(983, 700);
+ctx.lineTo(953, 1200);
+ctx.stroke();
     // 臉
     ctx.beginPath();
     ctx.lineWidth = 4;
@@ -61,6 +80,14 @@
       0, 2 * Math.PI
     );
     ctx.fill();
+    // 右粉眼
+    ctx.beginPath();
+    ctx.fillStyle = "pink";
+    ctx.ellipse(
+      922, 308, 70, 75, Math.PI / 3,
+      0, 2 * Math.PI
+    );
+    ctx.fill();
 
     // 左黑眼睛
     ctx.beginPath();
@@ -70,11 +97,24 @@
       0, 2 * Math.PI
     );
     ctx.fill();
+    // 右黑眼睛
+    ctx.beginPath();
+    ctx.fillStyle = "#000";
+    ctx.ellipse(
+      930, 300, 60, 65, Math.PI / 3,
+      0, 2 * Math.PI
+    );
+    ctx.fill();
 
     // 左白亮光
     ctx.beginPath();
     ctx.fillStyle = "#fff";
     ctx.arc(730, 290, 30, 0, Math.PI * 2);
+    ctx.fill();
+    // 右白亮光
+    ctx.beginPath();
+    ctx.fillStyle = "#fff";
+    ctx.arc(960, 290, 30, 0, Math.PI * 2);
     ctx.fill();
 
 // 左眼睛黑框
@@ -87,6 +127,47 @@
         );
         ctx.stroke();
 
+// 右眼睛黑框
+        ctx.beginPath();
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = "#000000";
+        ctx.ellipse(
+          915, 310, 80, 83, Math.PI / 3, 
+            0, 2 * Math.PI
+        );
+        ctx.stroke();
+//嘴巴
+ctx.beginPath();
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = "#000000";
+        ctx.arc(805, 430, 35, 0, Math.PI );
+        ctx.stroke();
+
+//劉海
+ctx.beginPath();
+ctx.fillStyle = "orange";
+ctx.lineWidth = 8;
+ctx.moveTo(983, 260);
+
+ctx.bezierCurveTo(894, 142,710, 142,620, 260);
+
+ctx.quadraticCurveTo(640, 250,670, 260);
+
+ctx.quadraticCurveTo(690, 220,727, 205);
+
+ctx.quadraticCurveTo(700, 220,682, 261);
+
+ctx.quadraticCurveTo(730, 250,752, 255);
+
+ctx.quadraticCurveTo(770, 220,805, 200);
+
+ctx.quadraticCurveTo(850, 230,855, 261);
+ctx.quadraticCurveTo(860, 260,930, 261);
+ctx.quadraticCurveTo(940, 260,890, 212);
+ctx.quadraticCurveTo(930, 230,940, 258);
+ctx.quadraticCurveTo(950, 260,978, 261);
+ctx.fill();
+ctx.stroke();
 
   </script>
 </body>

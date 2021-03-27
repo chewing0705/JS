@@ -13,11 +13,16 @@
         var Person = function (name, height,weight, age) {
             this.name = name;
             this.hands = 2;
+            this.fat = weight;
+            this.age = 26
             this.getName = function(){
                 return this.name
             }
         };
 let person01 = new Person ("Jolin",150,100,18);
+person01.name
+person01.fat
+person01.age
 console.log(person01.getName());
 
 

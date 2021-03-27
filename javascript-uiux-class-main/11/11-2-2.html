@@ -16,7 +16,7 @@
     let obj03 = {name: "Alex", age: 18};
     let strJson = JSON.stringify(obj03);
     let obj04 = JSON.parse(strJson);
-    console.log(obj03);
+    console.log(strJson);
     delete obj04.name;
     console.log(obj04);
 
@@ -29,8 +29,8 @@
     //用 ... 實現物件的複製
     let obj05 = {name: "Cook", age: 22};
     let {...obj06} = obj05;
-    console.log(obj05);
-    console.log(obj06);
+    // console.log(obj05);
+    // console.log(obj06);
     </script>
 </head>
 <body>

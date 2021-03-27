@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Script>
+       //求出 100 之內，3 跟 4 所有公倍數，結合 DOM 元素的動態增減，發揮個人創意與風格，依序輸出到網頁上 (50%)。 
+
+arrA=[];
+for (let i=1; i<=100;i++)
+{
+    if(i%3==0 && i%4==0){
+
+        
+        arrA.push(i);
+        
+    } 
+}
+
+console.log(arrA); 
+
+document.write(arrA[0]);
+
+
+
+// 求出 100 之內的質數，結合 DOM 元素的動態增減，發揮個人創意與風格，依序輸出到網頁上(50%)。
+arrB=[];
+for (let i= 2;i <= 100;i++){
+    isPrime = true;
+    for (let j=2 ;j<i; j++){
+        if (i % j ==0){
+            isPrime = false;
+        }
+    }
+        if (isPrime ==  false){
+    // console.log(`${i} not 質數 `);
+    }
+    else{
+            // console.log(`${i} is 質數 `);
+            arrB.push(i)
+     }
+}
+console.log(arrB); 
+    </Script>
+</body>
+</html>
