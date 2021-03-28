@@ -1,50 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <Script>
-       //求出 100 之內，3 跟 4 所有公倍數，結合 DOM 元素的動態增減，發揮個人創意與風格，依序輸出到網頁上 (50%)。 
+    <style>
+      body {
+        background: #000000;
+      }
+      #container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .magicBall {
+        max-width: 700px;
+        height: 300px;
+        margin: 0 auto;
+        margin-top: 10%;
+        background: url(./img/magicBall.gif) center no-repeat;
+      }
+      .title {
+        font-size: 30px;
+        color: rgb(67 116 145);
+        /* font-weight: 600; */
+      }
+      #txt {
+        font-size: 20px;
+        color: rgb(172, 224, 255);
+        font-weight: 600;
+        transition: 1s;
+        opacity: 1;
+        line-height: 8;
+      }
+      #btnBox {
+        display: flex;
+        justify-content: center;
+      }
+      .btn {
+        width: 120px;
+        height: 30px;
+        font-size: 20px;
+        border: 0;
+        /* font-weight: 600; */
+        color: #fff;
+        margin: 0 2%;
+        border-radius: 5px;
+        background: none;
+      }
+      #see {
+        width: 120px;
+        height: 30px;
+        margin: 0 auto;
+        margin-top: 15%;
+        border-radius: 10px;
+        background: #808080;
+        border:none;
+        color: #fff;
+      }
+      .ans {
+        max-width: 500px;
+        padding: 2% 2%;
+        background: #bebebe;
+        line-height: 2;
+        border-radius: 10px;
+        margin: 0 auto;
+        margin-top: 1%;
+        white-space: pre;
+        word-break: keep-all;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="magicBall">
+        <p class="title">誰&nbsp是&nbsp質&nbsp數</p>
+        <p id="txt">?</p>
+      </div>
+      <div id="btnBox"></div>
 
-arrA=[];
-for (let i=1; i<=100;i++)
-{
-    if(i%3==0 && i%4==0){
+      <button id="see">偷看提示</button>
+    </div>
+    <script>
+      //求出 100 之內，3 跟 4 所有公倍數，結合 DOM 元素的動態增減，發揮個人創意與風格，依序輸出到網頁上 (50%)。
 
-        
-        arrA.push(i);
-        
-    } 
-}
-
-console.log(arrA); 
-
-document.write(arrA[0]);
-
-
-
-// 求出 100 之內的質數，結合 DOM 元素的動態增減，發揮個人創意與風格，依序輸出到網頁上(50%)。
-arrB=[];
-for (let i= 2;i <= 100;i++){
-    isPrime = true;
-    for (let j=2 ;j<i; j++){
-        if (i % j ==0){
-            isPrime = false;
+      arrA = []
+      for (let i = 1; i <= 100; i++) {
+        if (i % 3 == 0 && i % 4 == 0) {
+          arrA.push(i)
         }
-    }
-        if (isPrime ==  false){
-    // console.log(`${i} not 質數 `);
-    }
-    else{
-            // console.log(`${i} is 質數 `);
-            arrB.push(i)
-     }
-}
-console.log(arrB); 
-    </Script>
-</body>
+      }
+
+      //   console.log(arrA)
+
+      // document.write(arrA);
+
+      // 求出 100 之內的質數，結合 DOM 元素的動態增減，發揮個人創意與風格，依序輸出到網頁上(50%)。
+      arrB = []
+      for (let i = 2; i <= 100; i++) {
+        isPrime = true
+        for (let j = 2; j < i; j++) {
+          if (i % j == 0) {
+            isPrime = false
+          }
+        }
+        if (isPrime == false) {
+          // console.log(`${i} not 質數 `);
+        } else {
+          // console.log(`${i} is 質數 `);
+          arrB.push(i)
+        }
+      }
+      //   console.log(arrB)
+      // document.write(arrB);
+
+      var k
+
+      function count() {
+        for (j = 1; j <= 20; j++) {
+          let k = Math.floor(Math.random() * 100)
+
+          let btnBox = document.getElementById('btnBox')
+          
+          let btn = document.createElement('button')
+          btn.setAttribute('class', 'btn') //建立class屬性在裡面
+          var textNum = document.createTextNode(`${k}`)
+          btn.appendChild(textNum)
+          btnBox.appendChild(btn)
+          // console.log(btn.innerText );
+          // console.log(arrB)
+        }
+      }
+
+      count();
+
+
+      setTimeout
+      let  =  document.getElementById('see');
+
+see.addEventListener('click', function(event){
+    let container = document.getElementById('container')
+    let ans = document.createElement('div');
+    ans.setAttribute('class', 'ans') //建立class屬性在裡面
+    var textAns = document.createTextNode(`100 之內的質數有：\n ${arrB}`);
+    ans.appendChild(textAns);
+    container.appendChild(ans);
+    // see.appendChild(ans);
+    console.log(see)
+
+});
+      let txt = document.getElementById('txt')
+      let c
+      let btnSelect = document.querySelectorAll('.btn')
+      for (let c = 0; c <= 20; c++) {
+        btnSelect[c].addEventListener('click', function (event) {
+          console.log(arrB)
+
+          let idx = arrB.indexOf(parseInt(this.innerText))
+          console.log(this.innerText)
+          console.log(idx)
+          if (idx !== -1) {
+            // this.innerText = ' 是';
+            txt.innerText = `您真聰明`
+            txt.style.color = '#fff'
+            this.style.backgroundColor = '#52cfee'
+            this.style.color = '#fff'
+            this.setAttribute('disabled', true)
+          } else {
+            txt.innerText = `大錯特錯`
+            txt.style.color = 'rgb(142 111 255)'
+            this.style.backgroundColor = 'rgb(75 56 147)'
+            this.setAttribute('disabled', true)
+          }
+        })
+      }
+    </script>
+  </body>
 </html>
