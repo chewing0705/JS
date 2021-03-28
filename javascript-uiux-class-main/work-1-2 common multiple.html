@@ -105,6 +105,7 @@
 
       //隨機列出15個數字
       var k
+      arrC = []
       function count() {
         for (j = 1; j <= 15; j++) {
           let k = Math.floor(Math.random() * 100)
@@ -118,23 +119,30 @@
           btnBox.appendChild(btn)
           // console.log(btn.innerText );
           // console.log(arrB)
+          arrC.push(k)
         }
       }
 
       count();
+      // console.log(arrC)
       //當隨機選出的數字裡面都沒有3.4的公倍數時 出現都沒有的按鈕
-      for (j = 1; j <= 15; j++) {}
-      let ALLidx = arrA.indexOf(parseInt(btnBox.innerText))
-
       let noMore = document.getElementById('noMore')
-      console.log(arrA)
-      console.log(ALLidx)
-      console.log(btnBox.innerText)
-      if (ALLidx == -1) {
-        noMore.style.display = 'block'
-      } else {
-        noMore.style.display = 'none'
+      for (j = 0; j <= 15; j++) {
+      let ALLidx = arrA.indexOf(arrC[j]);
+    }
+      console.log(ALLidx);
+   
+       if (ALLidx !==-1){
+        noMore.style.display ='none' ;
       }
+      else if (ALLidx ==-1){
+        noMore.style.display = 'block';
+      } 
+   
+      //
+     
+      // console.log(btnBox.innerText)
+   
 
       function noAns() {
         let t = Math.floor(Math.random() * 5)
