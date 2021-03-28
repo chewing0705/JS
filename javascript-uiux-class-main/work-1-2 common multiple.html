@@ -62,7 +62,7 @@
       }
       .ans {
         display: none;
-        max-width: 600px;
+        max-width: 400px;
         padding: 2% 2%;
         background: #bebebe;
         line-height: 2;
@@ -129,16 +129,17 @@
       let noMore = document.getElementById('noMore')
       for (j = 0; j <= 15; j++) {
       let ALLidx = arrA.indexOf(arrC[j]);
-    }
+    
       console.log(ALLidx);
    
-       if (ALLidx !==-1){
+       if (ALLidx !=-1){
         noMore.style.display ='none' ;
+        break;
       }
-      else if (ALLidx ==-1){
+      else {
         noMore.style.display = 'block';
       } 
-   
+    }
       //
      
       // console.log(btnBox.innerText)
