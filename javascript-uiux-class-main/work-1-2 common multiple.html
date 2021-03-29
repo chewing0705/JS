@@ -1,208 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3&4</title>
-    <style>
-      body {
-        background: #000000;
-      }
-      #container {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: center;
-      }
-      .magicBall {
-        max-width: 700px;
-        height: 300px;
-        margin: 0 auto;
-        margin-top: 10%;
-        background: url(./img/magicBall.gif) center no-repeat;
-      }
-      .title {
-        font-size: 30px;
-        color: rgb(67 116 145);
-        /* font-weight: 600; */
-      }
-      #txt {
-        font-size: 20px;
-        color: rgb(172, 224, 255);
-        font-weight: 600;
-        transition: 1s;
-        opacity: 1;
-        line-height: 8;
-      }
 
-      #btnBox {
-        display: flex;
-        justify-content: center;
-      }
-      .btn {
-        width: 120px;
-        height: 30px;
-        font-size: 20px;
-        border: 0;
-        /* font-weight: 600; */
-        color: #fff;
-        margin: 0 2%;
-        border-radius: 5px;
-        background: none;
-      }
-      #see {
-        width: 120px;
-        height: 30px;
-        margin: 0 auto;
-        margin-top: 15%;
-        border-radius: 10px;
-        background: #2f2f2f;
-        border: none;
-        color: #fff;
-      }
-      .ans {
-        display: none;
-        max-width: 400px;
-        padding: 2% 2%;
-        background: #bebebe;
-        line-height: 2;
-        border-radius: 10px;
-        margin: 0 auto;
-        margin-top: 1%;
-        white-space: pre;
-        word-break: keep-all;
-      }
-      #noMore {
-        display: none;
-        margin: 5% auto 0 auto;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="container">
-      <div class="magicBall">
-        <p class="title">誰是3與4 的公倍數</p>
-        <p id="txt">?</p>
-      </div>
-      <div id="btnBox"></div>
-      <button id="noMore" onclick="noAns()">全都不是</button>
-      <button id="see">偷看提示</button>
-      <div class="ans"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3&4</title>
+  <style>
+    body {
+      background: #000000;
+    }
+
+    #container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .magicBall {
+      max-width: 700px;
+      height: 300px;
+      margin: 0 auto;
+      margin-top: 10%;
+      background: url(./img/magicBall.gif) center no-repeat;
+    }
+
+    .title {
+      font-size: 30px;
+      color: rgb(67 116 145);
+      /* font-weight: 600; */
+    }
+
+    #txt {
+      font-size: 20px;
+      color: rgb(172, 224, 255);
+      font-weight: 600;
+      transition: 1s;
+      opacity: 1;
+      line-height: 8;
+    }
+
+    #btnBox {
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn {
+      width: 120px;
+      height: 30px;
+      font-size: 20px;
+      border: 0;
+      /* font-weight: 600; */
+      color: #fff;
+      margin: 0 2%;
+      border-radius: 5px;
+      background: none;
+    }
+
+    #see {
+      width: 120px;
+      height: 30px;
+      margin: 0 auto;
+      margin-top: 15%;
+      border-radius: 10px;
+      background: #2f2f2f;
+      border: none;
+      color: #fff;
+    }
+
+    .ans {
+      display: none;
+      max-width: 400px;
+      padding: 2% 2%;
+      background: #bebebe;
+      line-height: 2;
+      border-radius: 10px;
+      margin: 0 auto;
+      margin-top: 1%;
+      white-space: pre;
+      word-break: keep-all;
+    }
+
+    #noMore {
+      display: none;
+      margin: 5% auto 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div class="magicBall">
+      <p class="title">誰是3與4 的公倍數</p>
+      <p id="txt">?</p>
     </div>
-    <script>
-      //求出 100 之內，3 跟 4 所有公倍數，結合 DOM 元素的動態增減，發揮個人創意與風格，依序輸出到網頁上 (50%)。
+    <div id="btnBox"></div>
+    <button id="noMore" onclick="noAns()">全都不是</button>
+    <button id="see">偷看提示</button>
+    <div class="ans"></div>
+  </div>
+  <script>
+    //求出 100 之內，3 跟 4 所有公倍數，結合 DOM 元素的動態增減，發揮個人創意與風格，依序輸出到網頁上 (50%)。
 
-      arrA = []
-      for (let i = 1; i <= 100; i++) {
-        if (i % 3 == 0 && i % 4 == 0) {
-          arrA.push(i)
-        }
+    arrA = []
+    for (let i = 1; i <= 100; i++) {
+      if (i % 3 == 0 && i % 4 == 0) {
+        arrA.push(i)
       }
+    }
 
-      //對話
-      good = ['真聰明', '您真棒', '答對了', '唉唷不錯喔', '您真厲害']
-      bad = ['答錯了', '快看提示啊', '你行不行啊', '不對不對', '大錯特錯']
+    //對話
+    good = ['真聰明', '您真棒', '答對了', '唉唷不錯喔', '您真厲害']
+    bad = ['答錯了', '快看提示啊', '你行不行啊', '不對不對', '大錯特錯']
 
-      //隨機列出15個數字
-      var k
-      arrC = []
-      function count() {
-        for (j = 1; j <= 15; j++) {
-          let k = Math.floor(Math.random() * 100)
+    //隨機列出15個數字
+    var k
+    arrC = []
+    function count() {
+      for (j = 1; j <= 15; j++) {
+        let k = Math.floor(Math.random() * 100)
 
-          let btnBox = document.getElementById('btnBox')
+        let btnBox = document.getElementById('btnBox')
 
-          let btn = document.createElement('button')
-          btn.setAttribute('class', 'btn') //建立class屬性在裡面
-          var textNum = document.createTextNode(`${k}`)
-          btn.appendChild(textNum)
-          btnBox.appendChild(btn)
-          // console.log(btn.innerText );
-          // console.log(arrB)
-          arrC.push(k)
-        }
+        let btn = document.createElement('button')
+        btn.setAttribute('class', 'btn') //建立class屬性在裡面
+        var textNum = document.createTextNode(`${k}`)
+        btn.appendChild(textNum)
+        btnBox.appendChild(btn)
+        // console.log(btn.innerText );
+        // console.log(arrB)
+        arrC.push(k)
       }
+    }
 
-      count();
-      // console.log(arrC)
-      //當隨機選出的數字裡面都沒有3.4的公倍數時 出現都沒有的按鈕
-      let noMore = document.getElementById('noMore')
-      for (j = 0; j <= 15; j++) {
+    count();
+    // console.log(arrC)
+    //當隨機選出的數字裡面都沒有3.4的公倍數時 出現都沒有的按鈕
+    let noMore = document.getElementById('noMore')
+    for (j = 0; j <= 15; j++) {
       let ALLidx = arrA.indexOf(arrC[j]);
-    
+
       console.log(ALLidx);
-   
-       if (ALLidx !=-1){
-        noMore.style.display ='none' ;
+
+      if (ALLidx != -1) {
+        noMore.style.display = 'none';
         break;
       }
       else {
         noMore.style.display = 'block';
-      } 
-    }
-      //
-     
-      // console.log(btnBox.innerText)
-   
-
-      function noAns() {
-        let t = Math.floor(Math.random() * 5)
-        txt.innerText = String(good[t])
-        noMore.setAttribute('disabled', true)
-        txt.style.color = '#fff'
       }
+    }
 
-      //偷看提示
 
-      let see= document.getElementById('see')
-      let ans = document.querySelector('.ans')
-      see.addEventListener('click', function (event) {
-        // var textAns = document.createTextNode(`100之內，3跟4所有公倍數：\n ${arrB}`)
-        ans.innerText = '100之內，3跟4所有公倍數：' + '\n' + String(arrA)
-        // ans.appendChild(textAns)
-        // ans.style.display='block';
+    //onclick 時觸發的案件
+    function noAns() {
+      let t = Math.floor(Math.random() * 5)
+      txt.innerText = String(good[t])
+      noMore.setAttribute('disabled', true)
+      txt.style.color = '#fff'
+    }
 
-        // console.log(see)
-        // console.log(ans.innerHTML)
+    //偷看提示
 
-        //切換
-        if (ans.style.display === 'block') {
-          ans.style.display = 'none'
+    let see = document.getElementById('see')
+    let ans = document.querySelector('.ans')
+    see.addEventListener('click', function (event) {
+      // var textAns = document.createTextNode(`100之內，3跟4所有公倍數：\n ${arrB}`)
+      ans.innerText = '100之內，3跟4所有公倍數：' + '\n' + String(arrA)
+      // ans.appendChild(textAns)
+      // ans.style.display='block';
+
+      // console.log(see)
+      // console.log(ans.innerHTML)
+
+      //切換
+      if (ans.style.display === 'block') {
+        ans.style.display = 'none'
+      } else {
+        ans.style.display = 'block'
+      }
+    })
+
+    //   選擇數字效果
+    let txt = document.getElementById('txt')
+    let c
+    let btnSelect = document.querySelectorAll('.btn')
+    for (let c = 0; c <= 15; c++) {
+      btnSelect[c].addEventListener('click', function (event) {
+        //   console.log(arrB)
+        // console.log(this.innerText)
+        //   console.log(idx)
+        let t = Math.floor(Math.random() * 5)
+
+        // 判斷是否有包含在質數的陣列裡
+        let idx = arrA.indexOf(parseInt(this.innerText))
+
+        if (idx !== -1) {
+          txt.innerText = String(good[t])
+          txt.style.color = '#fff'
+
+          this.style.backgroundColor = '#52cfee'
+          this.style.color = '#fff'
+          this.setAttribute('disabled', true)
         } else {
-          ans.style.display = 'block'
+          txt.innerText = String(bad[t])
+          txt.style.color = 'rgb(142 111 255)'
+
+          this.style.backgroundColor = 'rgb(75 56 147)'
+          this.setAttribute('disabled', true)
         }
       })
+    }
+  </script>
+</body>
 
-      //   選擇數字效果
-      let txt = document.getElementById('txt')
-      let c
-      let btnSelect = document.querySelectorAll('.btn')
-      for (let c = 0; c <= 15; c++) {
-        btnSelect[c].addEventListener('click', function (event) {
-          //   console.log(arrB)
-          // console.log(this.innerText)
-          //   console.log(idx)
-          let t = Math.floor(Math.random() * 5)
-
-          // 判斷是否有包含在質數的陣列裡
-          let idx = arrA.indexOf(parseInt(this.innerText))
-
-          if (idx !== -1) {
-            txt.innerText = String(good[t])
-            txt.style.color = '#fff'
-
-            this.style.backgroundColor = '#52cfee'
-            this.style.color = '#fff'
-            this.setAttribute('disabled', true)
-          } else {
-            txt.innerText = String(bad[t])
-            txt.style.color = 'rgb(142 111 255)'
-
-            this.style.backgroundColor = 'rgb(75 56 147)'
-            this.setAttribute('disabled', true)
-          }
-        })
-      }
-    </script>
-  </body>
 </html>
