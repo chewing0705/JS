@@ -5,7 +5,7 @@
     <title>Canvas</title>
 </head>
 <body>
-    <canvas id="canvas" width="200" height="200"></canvas>
+    <canvas id="canvas" width="500" height="500"></canvas>
 
     <script>
         let canvas = document.getElementById("canvas");
@@ -20,19 +20,21 @@
              * 清空畫布
              * void ctx.clearRect(x, y, width, height);
              */
-            ctx.clearRect(0, 0, 200, 200);
+            ctx.clearRect(0, 0, 500, 500);
+
 
             //繪製矩形
             ctx.fillRect(position, 0, 20, 20);
-
+       
             //每執行 setInterval，就將 position 位置加 1
-            position++;
-
+            // position++;
+            position+=20;
+ 
             //若是大於 200 (畫布的寬度)，則從 0 開始
-            if(position > 200){
+            if(position > 500){
                 position = 0;
             }
-        }, 30);
+        }, 1000);
     </script>
 </body>
 </html>

@@ -10,7 +10,7 @@
     <script>
         let canvas = document.getElementById("canvas");
         let ctx = canvas.getContext("2d");
-
+//1.定義一個模組 來創造畫多個
         //定義畫「實心圓形」還是畫「圓線」的函式
         let circle = function(x, y, radius, fillCircle){
             ctx.beginPath();
@@ -23,7 +23,10 @@
                 ctx.stroke();
             }
         }
+     
 
+
+//1.用true 、false 來分實心或線性
         //繪製蜜蜂的函式
         let drawBee = function(x, y){
             ctx.lineWidth = 2;
@@ -51,8 +54,10 @@
 
             //畫小小黑色圓，放在黃色實心圓中間靠右
             circle(x + 2, y - 1, 2, false);
-        }
 
+            circle(x,y+2,20,false)
+        }
+//3.定義一個可以放在(x)(y) 的變化數
         //隨機更新蜜蜂的位置
         let update = function(position){
             //介於 -2 到 1 之間
@@ -74,7 +79,8 @@
             //將計算過的 position 回傳
             return position;
         }
-
+      
+//4. 先設定一個初始直，然後每次執行帶入蜜蜂與數字
         //主程式區域
         let x = 100;
         let y = 100;

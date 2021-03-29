@@ -116,12 +116,25 @@
       ctx.lineWidth = 8
       ctx.moveTo(765, 204)
 
-      ctx.bezierCurveTo(808, 126, 764, 54, 660, 22)
-      ctx.bezierCurveTo(638, 146, 711, 188, 737, 210)
-      ctx.fill()
-      ctx.stroke()
+      ctx.bezierCurveTo(808, 126, 764, 54, 660, 22);
+      ctx.bezierCurveTo(638, 146, 711, 188, 737, 210);
+      ctx.fill();
+      ctx.stroke();
+
+      //頭髮
+      ctx.beginPath();
+      ctx.fillStyle = 'orange';
+      ctx.lineWidth = 8;
+      ctx.moveTo(715,504)
+
+ctx.bezierCurveTo(734,564,679,672, 605,640);
+ctx.bezierCurveTo(683,802,916,769, 985,640);
+ctx.bezierCurveTo(906,635,865,542, 867,498);
+      ctx.fill();
+      ctx.stroke();
+
       //右腳
-      ctx.beginPath()
+      ctx.beginPath();
       ctx.fillStyle = '#fff'
       ctx.lineWidth = 8
       ctx.moveTo(819, 704)
