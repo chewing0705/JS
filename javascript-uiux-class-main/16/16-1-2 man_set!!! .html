@@ -5,6 +5,14 @@
 
     <title>Your man </title>
     <meta name="description" content="選擇你的男人" />
+    <meta property="og:site_name" content="Your man" />
+<meta property="fb:app_id" content="APP ID" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Your man" />
+<meta property="og:description" content="選擇你的男人" />
+<meta property="og:image" content="https://imgur.com/CfGR0RV" />
+<meta property="og:url" content="https://chu000.github.io/JS-YourManGame/your-man.html" />
+<link rel="canonical" href="https://chu000.github.io/JS-YourManGame/your-man.html">
     <style>
         * {
             margin: 0;
@@ -183,6 +191,11 @@
 </head>
 
 <body>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v10.0" nonce="1k5n3My8"></script>
+<div class="line-it-button" style="display: none;" data-type="share-a" data-lang="zh-Hant" ></div>
+  <!-- Load line --><script src="//scdn.line-apps.com/n/line_it/thirdparty/loader.min.js" async="async" defer="defer" ></script>
     <nav>今晚，我想來點</nav>
     <div class="containter">
 
@@ -218,6 +231,12 @@
     </div>
   <img class="love-icon" src="/javascript-uiux-class-main/img/love.png" alt="">
     <footer>（圖片轉載自網路）</footer>
+
+    //fb分享
+    <div class="fb-share-button" data-href="https://chu000.github.io/JS-YourManGame/your-man.html" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">分享</a></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v10.0" nonce="RehIC4y6"></script>
+//line分享
+<a href="javascript: void(window.open(&apos;https://lineit.line.me/share/ui?url=&apos; .concat(encodeURIComponent(location.href)) ));" title="分享給 LINE 好友"><img alt="分享給LINE好友 !" height="40" src="https://1.bp.blogspot.com/-FvoBw8lnlC8/WHgA91RmxiI/AAAAAAAAIvA/CazIGx6Jlp8PJ4pE40kt2XMxwFmeBSdjgCLcB/s1600/168x40.png" width="168" /></a>
     <script>
 
 
