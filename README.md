@@ -7,5 +7,5 @@
 
 
 
-*   JS互動小遊戲-誰是質數 [點擊前往]https://chu000.github.io/JS/javascript-uiux-class-main/work-1-1-isPrime.html) 
+*   JS互動小遊戲-誰是質數 [點擊前往](https://chu000.github.io/JS/javascript-uiux-class-main/work-1-1-isPrime.html) 
 [![預覽](https://chu000.github.io/JS/javascript-uiux-class-main/img/work-isPrime.jpg)](https://chu000.github.io/JS/javascript-uiux-class-main/work-1-1-isPrime.html)
